@@ -266,6 +266,6 @@ public interface PluginAPI {
 时间仓促，功能简陋，望您包涵。任意的意见和建议，欢迎随意与我沟通！
  
 * Email: <hezs87@protonmail.com>
-* QQ: 909400921
+* QQ: `909400921`
 * Blog:[个人博客](https://www.situ9527.cn/)
  
