@@ -1,0 +1,28 @@
+tshark.exe -r E:\normal\real_Traffic_PCAP_Samer\Sample1-30min.pcapng -T fields -e frame.number -e frame.time -e eth.src -e eth.dst -e ip.src -e ip.dst -e tcp.srcport -e tcp.dstport -e tcp.len -e ip.proto -E header=y -E separator=, -E quote=d -E occurrence=f > test.csv
+
+
+tshark.exe -r E:\attack\ICMP+SYN+30MIN.pcapng -T fields  -e frame.time_delta -e tcp.srcport -e tcp.dstport  -e tcp.len -e icmp -e udp -e tcp.flags -e tcp.analysis.flags -E header=y -E separator=, -E quote=d -E occurrence=f > test.csv
+
+tshark.exe -r E:\normal\real_Traffic_PCAP_Samer\Sample1-30min.pcapng -T fields  -e frame.time_delta -e tcp.srcport -e tcp.dstport  -e tcp.len -e icmp -e udp -e tcp.flags -e openflow_v4.type -e openflow_v4.length -E header=y -E separator=, -E quote=d -E occurrence=f > test.csv
+
+特征选择：
+攻击
+tshark.exe -r E:\attack\UDP+SYN+30MIN.pcapng -T fields  -e frame.time_delta   -e tcp.len -e icmp -e udp  -e tcp.analysis.flags -e tcp.analysis.bytes_in_flight -e openflow_v4.type -e openflow_v4.length -e openflow_v4.action.length -E header=y -E separator=, -E quote=d -E occurrence=f > test.csv
+
+正常
+tshark.exe -r E:\normal\real_Traffic_PCAP_Samer\sample7.pcapng -T fields  -e frame.time_delta -e tcp.srcport -e tcp.dstport  -e tcp.len -e icmp -e udp -e tcp.flags -e tcp.analysis.flags -e openflow_v4.type -e openflow_v4.length -E header=y -E separator=, -E quote=d -E occurrence=f > test.csv
+
+tshark.exe -r E:\normal\real_Traffic_PCAP_Samer\Sample13_1hr.pcapng -T fields  -e frame.time_delta   -e tcp.len -e icmp -e udp  -e tcp.analysis.flags -e tcp.analysis.bytes_in_flight -e openflow_v4.type -e openflow_v4.length -e openflow_v4.action.length -E header=y -E separator=, -E quote=d -E occurrence=f > test.csv
+
+
+最新特征选择
+tshark.exe -r E:\attack\111.pcapng -T fields  -e frame.time_delta   -e ip.src -e tcp.len -e icmp -e udp  -e tcp.analysis.flags  -e openflow_v4.type -e openflow_v4.length  -E header=y -E separator=, -E quote=d -E occurrence=f > test.csv
+
+最最新特征选择
+tshark.exe -r E:\attack\222.pcapng -T fields  -e frame.time_delta   -e tcp.len -e icmp   -e tcp.analysis.flags  -e openflow_v4.type -e openflow_v4.length  -E header=y -E separator=, -E quote=d -E occurrence=f > test.csv
+
+打印输出命令
+tshark.exe -r E:\attack\222.pcapng -T fields  -e frame.time  --e ip.src -e tcp.srcport -e tcp.dstport   -e openflow_v4.type  -E header=y -E separator=, -E quote=d -E occurrence=f > test.csv
+
+
+
